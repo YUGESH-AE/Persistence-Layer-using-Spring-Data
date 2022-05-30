@@ -4,6 +4,7 @@ import com.demo.dto.CustomerDto;
 import com.demo.entity.Customer;
 import com.demo.enumentity.CustomerType;
 import com.demo.service.customerServiceImpl;
+import com.demo.repository.Data_JPA.CustomerRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -29,6 +33,8 @@ static Scanner scanner=new Scanner(System.in);
 
 	@Autowired
 	customerServiceImpl customerService;
+	@Autowired
+	CustomerRepository customerRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -138,6 +144,26 @@ static Scanner scanner=new Scanner(System.in);
 //			for(Customer i:cust){
 //				logger.info(i);
 //			}
+
+			/*
+			Pagination  & Sorting
+			 */
+			int k=(int)(customerRepository.count()/3);
+			for(int i=0;i<=k;i++){
+				Pageable pageable= PageRequest.of(i,3);
+				logger.info("Records in page:{}",i);
+				Iterable<Customer>customers8= customerService.findAll(pageable);
+				for (Customer v:customers8){
+					logger.info(v);
+				}
+			}
+			logger.info(" Sorted records: ");
+
+			Iterable<Customer>customers9= customerService.findAll(Sort.by(Sort.Direction.ASC,"name"));
+			for (Customer n:customers9){
+				logger.info(n);
+			}
+
 
 
 

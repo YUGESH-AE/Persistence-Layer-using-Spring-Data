@@ -5,6 +5,9 @@ import com.demo.entity.Customer;
 import com.demo.repository.Data_JPA.CustomerRepository;
 import com.demo.repository.ORM.customerRepositoryORMImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -95,5 +98,16 @@ public class customerServiceImpl  implements CustomerService{
     @Override
     public List<Customer> getall() {
         return customerRepository.findAll();
+    }
+
+    @Override
+    public Page<Customer> findAll(Pageable page) {
+
+        return customerRepository.findAll(page);
+    }
+
+    @Override
+    public List<Customer> findAll(Sort sort) {
+        return customerRepository.findAll(sort);
     }
 }
