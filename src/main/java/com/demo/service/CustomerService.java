@@ -1,16 +1,31 @@
 package com.demo.service;
 
 import com.demo.dto.CustomerDto;
+import com.demo.entity.Customer;
 
 import java.util.List;
 
 public interface CustomerService {
+    /*
+    ORM implementations
+     */
+//    String insert(CustomerDto customer);
+//
+//    String update(Integer customerId, String name,String email);
+//
+//    Integer delete(Integer customerId);
+//
+//    List<CustomerDto> getAll();
 
-    String insert(CustomerDto customer);
 
-    String update(Integer customerId, String name,String email);
+    /*
+    Spring Data JPA implementations
+     */
+    String insert(CustomerDto customerDto);
 
-    Integer delete(Integer customerId);
+    String update(CustomerDto customerDto,Integer customerId);
 
-    List<CustomerDto> getAll();
+    Integer delete (Integer customerID);
+
+    List<Customer> getall();
 }

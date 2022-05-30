@@ -1,6 +1,7 @@
 package com.demo;
 
 import com.demo.dto.CustomerDto;
+import com.demo.entity.Customer;
 import com.demo.enumentity.CustomerType;
 import com.demo.service.customerServiceImpl;
 import org.apache.logging.log4j.LogManager;
@@ -85,6 +86,58 @@ static Scanner scanner=new Scanner(System.in);
 //				logger.info(i);
 //			}
 
+			/*
+			Spring Data JPA Implementations
+			 */
+
+			/*
+			inserting records
+			 */
+//			logger.info(customerService.insert(a1));
+//			logger.info(customerService.insert(a2));
+//			logger.info(customerService.insert(a3));
+//			logger.info(customerService.insert(a4));
+//			logger.info(customerService.insert(a5));
+//			logger.info(customerService.insert(a6));
+//			logger.info(customerService.insert(a7));
+
+			/*
+			updating records
+			 */
+//			logger.info("Enter the customer id which needs to be updated");
+//			Integer customer1ID=scanner.nextInt();
+//			CustomerDto v=new CustomerDto();
+//			v.setCustomerId(customer1ID);
+//			logger.info("Enter the name");
+//			String cname=scanner.next();
+//			v.setName(cname);
+//			logger.info("Enter the emailID");
+//			String cemail=scanner.next();
+//			v.setEmailId(cemail);
+//			v.setDateOfBirth(LocalDate.of(1999,8,20));
+//			v.setCustomerType(CustomerType.PLATINUM);
+//			logger.info(customerService.update(v,customer1ID));
+
+			/*
+			deleting record
+			 */
+//			logger.info("Enter the Customer id which needs to be deleted");
+//			Integer custIDNO=scanner.nextInt();
+//			int result=customerService.delete(custIDNO);
+//			if(result>0){
+//				logger.info("Record deleted successfully");
+//			}
+//			else {
+//				logger.info("NO record found");
+//			}
+
+			/*
+			fetching all record
+			 */
+//			List<Customer>cust=customerService.getall();
+//			for(Customer i:cust){
+//				logger.info(i);
+//			}
 
 
 
