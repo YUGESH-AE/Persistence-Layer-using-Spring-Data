@@ -148,21 +148,24 @@ static Scanner scanner=new Scanner(System.in);
 			/*
 			Pagination  & Sorting
 			 */
-			int k=(int)(customerRepository.count()/3);
-			for(int i=0;i<=k;i++){
-				Pageable pageable= PageRequest.of(i,3);
-				logger.info("Records in page:{}",i);
-				Iterable<Customer>customers8= customerService.findAll(pageable);
-				for (Customer v:customers8){
-					logger.info(v);
-				}
-			}
-			logger.info(" Sorted records: ");
+//			int k=(int)(customerRepository.count()/3);
+//			for(int i=0;i<=k;i++){
+//				Sort sort=Sort.by("name").ascending();
+//				Pageable pageable= PageRequest.of(i,3,sort);
+//				logger.info("Records in page:{}",i);
+//				Iterable<Customer>customers8= customerService.findAll(pageable);
+//				for (Customer v:customers8){
+//					logger.info(v);
+//				}
+//			}
 
-			Iterable<Customer>customers9= customerService.findAll(Sort.by(Sort.Direction.ASC,"name"));
-			for (Customer n:customers9){
-				logger.info(n);
-			}
+
+//			logger.info(" Sorted records: ");
+//
+//			Iterable<Customer>customers9= customerService.findAll(Sort.by(Sort.Direction.ASC,"name"));
+//			for (Customer n:customers9){
+//				logger.info(n);
+//			}
 
 
 
