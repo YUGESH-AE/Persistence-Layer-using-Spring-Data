@@ -3,14 +3,13 @@ package com.demo.service;
 import com.demo.dto.CustomerDto;
 import com.demo.entity.Customer;
 import com.demo.repository.Data_JPA.CustomerRepository;
-import com.demo.repository.ORM.customerRepositoryORMImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -110,4 +109,38 @@ public class customerServiceImpl  implements CustomerService{
     public List<Customer> findAll(Sort sort) {
         return customerRepository.findAll(sort);
     }
+
+
+
+
+
+    @Override
+    public List<Customer> findByEmailIdOrName(String emailId, String name) {
+        return customerRepository.findByEmailIdOrName(emailId,name);
+    }
+    @Override
+    public List<Customer> findByDateOfBirthBetween(LocalDate fromDate, LocalDate toDate) {
+        return customerRepository.findByDateOfBirthBetween(fromDate,toDate);
+    }
+
+    @Override
+    public List<Customer> findByDateOfBirthAfter(LocalDate dateOfBirth) {
+        return customerRepository.findByDateOfBirthAfter(dateOfBirth);
+    }
+
+    @Override
+    public String findNameByEmailID(String emailId) {
+        return customerRepository.findNameByEmailID(emailId);
+    }
+
+    @Override
+    public Integer updateEmailIdByName(String emailId, Integer customerId) {
+        return customerRepository.updateEmailIdByName(emailId,customerId);
+    }
+
+    @Override
+    public Integer deleteByEmailId(String emailId) {
+        return customerRepository.deleteByEmailId(emailId);
+    }
+
 }

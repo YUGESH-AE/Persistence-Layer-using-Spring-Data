@@ -6,7 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface CustomerService {
     /*
@@ -37,4 +39,20 @@ public interface CustomerService {
      */
     Page<Customer> findAll(Pageable page);
     List<Customer> findAll(Sort sort);
+
+    /*
+    Query based on method
+     */
+
+    List<Customer> findByEmailIdOrName(String emailId, String name);
+    List<Customer> findByDateOfBirthBetween(LocalDate fromDate, LocalDate toDate);
+    List<Customer> findByDateOfBirthAfter(LocalDate dateOfBirth);
+
+    /*
+    @Query Annotation
+     */
+    String findNameByEmailID(String emailId);
+    Integer updateEmailIdByName(String emailId,Integer customerId);
+    Integer deleteByEmailId(String emailId);
+
 }

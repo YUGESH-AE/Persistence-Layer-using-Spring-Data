@@ -17,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import java.util.Scanner;
 
@@ -167,7 +168,42 @@ static Scanner scanner=new Scanner(System.in);
 //				logger.info(n);
 //			}
 
+			/*
+			Query on methods
+			 */
+//			logger.info(customerService.findByDateOfBirthAfter(LocalDate.of(1999, Month.AUGUST,20)));
+//			logger.info(customerService.findByEmailIdOrName("yuge@gmail","raj"));
+//			logger.info(customerService.findByDateOfBirthBetween(LocalDate.of(1999,Month.FEBRUARY,21),LocalDate.of(1999,Month.DECEMBER,21)));
 
+
+			/*
+			@Query Annotations
+			 */
+//			logger.info("Enter the email ID of the person whose name to be shown");
+//			String email=scanner.next();
+//			logger.info(customerService.findNameByEmailID(email));
+
+//			logger.info("Enter the email id of the person which needs to be deleted");
+//			String email2=scanner.next();
+//			int result2=customerRepository.deleteByEmailId(email2);
+//			if(result2>0){
+//				logger.info(email2+" is deleted successfully");
+//			}
+//			else {
+//				logger.info("No records found");
+//			}
+//
+//			logger.info("Enter the customer id which needs to be updated:");
+//			Integer cID=scanner.nextInt();
+//			logger.info("Enter the new email:");
+//			String email3=scanner.next();
+//			int result3= customerRepository.updateEmailIdByName(email3,cID);
+//			if(result3>0){
+//				logger.info(cID+" is updated successfully");
+//			}
+//			else {
+//				logger.info("No records found");
+//			}
 
 
 			scanner.close();
